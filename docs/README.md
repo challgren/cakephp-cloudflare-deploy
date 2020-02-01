@@ -16,7 +16,7 @@ $ bin/cake plugin load CloudflareDeploy
 
 ## Configuration
 
-Set your Cloudflare AAP User, API key and zoneId in `Cloudflare` settings in `app.php`.
+Set your Cloudflare API User, API key and zoneId in `Cloudflare` settings in `app.php`.
 
 _You can get your zone ID by viewing the Overview of the domain controlled by Cloudflare._
 
