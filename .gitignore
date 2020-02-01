@@ -1,0 +1,9 @@
+/phpunit.phar
+/vendor/
+/tmp/
+.idea/
+composer.lock
+schema-dump-default.lock
+composer.phar
+/.phpunit.result.cache
+.DS_Store

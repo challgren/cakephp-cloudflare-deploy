@@ -1,0 +1,51 @@
+{
+	"name": "challgren/cakephp-cloudflare-deploy",
+	"type": "cakephp-plugin",
+	"description": "Useful console commands for deploying CakePHP apps using Cloudflare.",
+	"keywords": ["cakephp","cloudflare","deploy"],
+	"homepage": "https://github.com/challgren/cakephp-cloudflare-deploy",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Chris Hallgren",
+			"homepage": "https://www.hallgren.net",
+			"role": "Maintainer"
+		},
+		{
+			"name": "Contributors",
+			"homepage": "https://github.com/challgren/cakephp-cloudflare-deploy/graphs/contributors",
+			"role": "Contributor"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"cakephp/cakephp": "^3.8",
+		"cloudflare/sdk": "^1.1"
+	},
+	"require-dev": {
+		"cakephp/cakephp-codesniffer": "^3.0"
+	},
+	"support": {
+		"source": "https://github.com/challgren/cakephp-cloudflare-deploy"
+	},
+	"autoload": {
+		"psr-4": {
+			"CloudflareDeploy\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"CloudflareDeploy\\Test\\": "tests/",
+			"App\\": "tests/test_app/src/",
+			"Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
+		}
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse -c tests/phpstan.neon src/",
+		"phpstan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan:^0.12 && mv composer.backup composer.json",
+		"test": "php phpunit.phar",
+		"test-setup": "[ ! -f phpunit.phar ] && wget https://phar.phpunit.de/phpunit-6.5.13.phar && mv phpunit-6.5.13.phar phpunit.phar || true",
+		"cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+		"cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/"
+	}
+}
